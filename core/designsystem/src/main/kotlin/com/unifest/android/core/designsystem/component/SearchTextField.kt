@@ -38,11 +38,12 @@ import com.unifest.android.core.designsystem.ComponentPreview
 import com.unifest.android.core.designsystem.R
 import com.unifest.android.core.designsystem.theme.BoothLocation
 import com.unifest.android.core.designsystem.theme.MainColor
+import com.unifest.android.core.designsystem.theme.SubColor
 import com.unifest.android.core.designsystem.theme.UnifestTheme
 
 val unifestTextSelectionColors = TextSelectionColors(
     handleColor = MainColor,
-    backgroundColor = Color(0xFFFAB3BE),
+    backgroundColor = SubColor,
 )
 
 @Composable

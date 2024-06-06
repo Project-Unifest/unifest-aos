@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -72,7 +73,7 @@ fun LikedBoothItem(
                 Text(
                     text = booth.warning,
                     style = Title5,
-                    color = Color(0xFF545454),
+                    color = MaterialTheme.colorScheme.onBackground,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
@@ -87,7 +88,7 @@ fun LikedBoothItem(
                     Text(
                         text = booth.location,
                         style = Title5,
-                        color = Color(0xFF545454),
+                        color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.align(Alignment.CenterVertically),
                     )
                 }

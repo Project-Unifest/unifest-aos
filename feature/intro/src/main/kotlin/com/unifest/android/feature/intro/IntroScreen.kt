@@ -30,6 +30,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
@@ -113,7 +114,7 @@ fun IntroScreen(
     onAction: (IntroUiAction) -> Unit,
 ) {
     UnifestScaffold(
-        containerColor = Color.White,
+        containerColor = MaterialTheme.colorScheme.background,
     ) { innerPadding ->
         IntroContent(
             uiState = uiState,
@@ -125,7 +126,7 @@ fun IntroScreen(
             LoadingWheel(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.White),
+                    .background(MaterialTheme.colorScheme.background),
             )
         }
 
@@ -351,7 +352,7 @@ fun AllFestivalsTabRow(
     Column(modifier) {
         ScrollableTabRow(
             selectedTabIndex = selectedTabIndex,
-            containerColor = Color.White,
+            containerColor = MaterialTheme.colorScheme.background,
             contentColor = Color(0xFFE5E5E5),
             edgePadding = 0.dp,
             indicator = {},

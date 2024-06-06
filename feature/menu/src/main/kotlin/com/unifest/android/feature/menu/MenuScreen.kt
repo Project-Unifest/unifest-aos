@@ -27,6 +27,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -187,7 +188,7 @@ fun MenuScreen(
                         ) {
                             Text(
                                 text = stringResource(id = R.string.menu_add),
-                                color = Color(0xFF545454),
+                                color = MaterialTheme.colorScheme.onBackground,
                                 style = Content7,
                                 textDecoration = TextDecoration.Underline,
                             )
@@ -235,7 +236,7 @@ fun MenuScreen(
                         ) {
                             Text(
                                 text = stringResource(id = R.string.menu_watch_more),
-                                color = Color(0xFF545454),
+                                color = MaterialTheme.colorScheme.onBackground,
                                 style = Content7,
                                 textDecoration = TextDecoration.Underline,
                             )
@@ -382,7 +383,7 @@ fun FestivalItem(
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = festival.schoolName,
-            color = Color(0xFF545454),
+            color = MaterialTheme.colorScheme.onBackground,
             style = Content6,
             textAlign = TextAlign.Center,
         )

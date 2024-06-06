@@ -2,6 +2,7 @@ package com.unifest.android.feature.booth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -64,6 +66,8 @@ import com.unifest.android.core.designsystem.theme.BoothLocation
 import com.unifest.android.core.designsystem.theme.BoothTitle1
 import com.unifest.android.core.designsystem.theme.Content2
 import com.unifest.android.core.designsystem.theme.Content3
+import com.unifest.android.core.designsystem.theme.DarkBackground
+import com.unifest.android.core.designsystem.theme.LightBackground
 import com.unifest.android.core.designsystem.theme.MainColor
 import com.unifest.android.core.designsystem.theme.MenuPrice
 import com.unifest.android.core.designsystem.theme.MenuTitle
@@ -97,6 +101,7 @@ internal fun BoothDetailRoute(
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val snackBarState = remember { SnackbarHostState() }
+    val isDarkTheme = isSystemInDarkTheme()
 
     DisposableEffect(systemUiController) {
         systemUiController.setStatusBarColor(
@@ -105,8 +110,8 @@ internal fun BoothDetailRoute(
         )
         onDispose {
             systemUiController.setStatusBarColor(
-                color = Color.White,
-                darkIcons = true,
+                color = if (isDarkTheme) DarkBackground else LightBackground,
+                darkIcons = !isDarkTheme,
             )
         }
     }
@@ -436,7 +441,7 @@ fun MenuItem(
             Text(
                 text = menu.name,
                 style = MenuTitle,
-                color = Color(0xFF545454),
+                color = MaterialTheme.colorScheme.onBackground,
             )
             Spacer(modifier = Modifier.height(3.dp))
             Text(
