@@ -163,7 +163,7 @@ fun MenuScreen(
                 elevation = 8.dp,
                 modifier = Modifier
                     .background(
-                        Color.White,
+                        color = MaterialTheme.colorScheme.background,
                         shape = RoundedCornerShape(bottomEnd = 20.dp, bottomStart = 20.dp),
                     )
                     .padding(top = 13.dp, bottom = 5.dp),

@@ -28,7 +28,6 @@ import com.unifest.android.core.common.extension.clickableSingle
 import com.unifest.android.core.designsystem.ComponentPreview
 import com.unifest.android.core.designsystem.R
 import com.unifest.android.core.designsystem.component.NetworkImage
-import com.unifest.android.core.designsystem.theme.MainColor
 import com.unifest.android.core.designsystem.theme.Title2
 import com.unifest.android.core.designsystem.theme.Title5
 import com.unifest.android.core.model.LikedBoothModel
@@ -41,7 +40,8 @@ fun LikedBoothItem(
     deleteLikedBooth: (LikedBoothModel) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val bookMarkColor = if (booth.isLiked) MainColor else Color(0xFF4B4B4B)
+    val bookMarkColor = if (booth.isLiked) MaterialTheme.colorScheme.primary else Color(0xFF4B4B4B)
+
     Column(
         modifier = modifier.padding(horizontal = 20.dp),
     ) {

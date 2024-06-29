@@ -68,7 +68,6 @@ import com.unifest.android.core.designsystem.theme.Content2
 import com.unifest.android.core.designsystem.theme.Content3
 import com.unifest.android.core.designsystem.theme.DarkBackground
 import com.unifest.android.core.designsystem.theme.LightBackground
-import com.unifest.android.core.designsystem.theme.MainColor
 import com.unifest.android.core.designsystem.theme.MenuPrice
 import com.unifest.android.core.designsystem.theme.MenuTitle
 import com.unifest.android.core.designsystem.theme.Title2
@@ -268,7 +267,8 @@ fun BottomBar(
     onAction: (BoothUiAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val bookMarkColor = if (isBookmarked) MainColor else Color(0xFF4B4B4B)
+    val bookmarkColor = if (isBookmarked) MaterialTheme.colorScheme.primary else Color(0xFF4B4B4B)
+
     Surface(
         modifier = modifier.height(116.dp),
         shadowElevation = 32.dp,
@@ -291,14 +291,14 @@ fun BottomBar(
                     Icon(
                         imageVector = ImageVector.vectorResource(if (isBookmarked) R.drawable.ic_bookmarked else R.drawable.ic_bookmark),
                         contentDescription = if (isBookmarked) "북마크됨" else "북마크하기",
-                        tint = bookMarkColor,
+                        tint = bookmarkColor,
                         modifier = Modifier.clickableSingle {
                             onAction(BoothUiAction.OnToggleBookmark)
                         },
                     )
                     Text(
                         text = "$bookmarkCount",
-                        color = bookMarkColor,
+                        color = bookmarkColor,
                         style = BoothCaution.copy(fontWeight = FontWeight.Bold),
                     )
                 }
@@ -363,7 +363,7 @@ fun BoothDescription(
                 text = warning,
                 modifier = Modifier.alignBy(LastBaseline),
                 style = BoothCaution,
-                color = MainColor,
+                color = MaterialTheme.colorScheme.primary,
             )
         }
         Spacer(modifier = Modifier.height(15.dp))
